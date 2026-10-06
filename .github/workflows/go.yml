@@ -1,0 +1,38 @@
+name: Go modules
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.work
+          cache-dependency-path: '**/go.sum'
+      - name: Install generator test prerequisite
+        run: go install golang.org/x/tools/cmd/goimports@v0.47.0
+      - name: Build and test workspace modules
+        shell: bash
+        run: |
+          modules=$(go work edit -json | jq -r '.Use[].DiskPath')
+          while IFS= read -r module; do
+            echo "::group::$module"
+            (
+              cd "$module"
+              go test -run '^$' -exec /bin/true ./...
+              case "$module" in
+                ./dcy|./pkg/mdb|./pkg/mdb2|./pkg/testu/mongo|./pkg/testu2/mongo)
+                  echo "Integration tests require Consul or MongoDB; compiled only."
+                  ;;
+                *) go test -count=1 -timeout=5m ./... ;;
+              esac
+            )
+            echo "::endgroup::"
+          done <<< "$modules"

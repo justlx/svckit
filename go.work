@@ -1,0 +1,95 @@
+go 1.25.0
+
+use (
+	.
+	./amp
+	./amp/gen
+	./amp/nsq
+	./asm
+	./cgen
+	./dcy
+	./env
+	./file
+	./health
+	./httpi
+	./httpu
+	./jsondiff
+	./jsonreq
+	./leader
+	./log
+	./metric
+	./metric/conn
+	./metric/dev
+	./metric/prometheus
+	./metric/statsd
+	./nsq
+	./pkg/broker
+	./pkg/compress
+	./pkg/defaults
+	./pkg/geo
+	./pkg/heartbeat
+	./pkg/jsonu
+	./pkg/jsonu/frontend
+	./pkg/mdb
+	./pkg/mdb2
+	./pkg/msgs
+	./pkg/mssql
+	./pkg/qcheck
+	./pkg/sequence
+	./pkg/testu
+	./pkg/testu/mongo
+	./pkg/testu2
+	./pkg/testu2/mongo
+	./pkg/util
+	./pkg/util/mongo/api
+	./pkg/util/profile
+	./saga
+	./signal
+)
+
+// Resolve initial sibling versions locally until their first release is published.
+replace (
+	github.com/minus5/svckit/amp v0.1.0 => ./amp
+	github.com/minus5/svckit/amp/gen v0.1.0 => ./amp/gen
+	github.com/minus5/svckit/amp/nsq v0.1.0 => ./amp/nsq
+	github.com/minus5/svckit/asm v0.1.0 => ./asm
+	github.com/minus5/svckit/cgen v0.1.0 => ./cgen
+	github.com/minus5/svckit/dcy v0.1.0 => ./dcy
+	github.com/minus5/svckit/env v0.1.0 => ./env
+	github.com/minus5/svckit/file v0.1.0 => ./file
+	github.com/minus5/svckit/health v0.1.0 => ./health
+	github.com/minus5/svckit/httpi v0.1.0 => ./httpi
+	github.com/minus5/svckit/httpu v0.1.0 => ./httpu
+	github.com/minus5/svckit/jsondiff v0.1.0 => ./jsondiff
+	github.com/minus5/svckit/jsonreq v0.1.0 => ./jsonreq
+	github.com/minus5/svckit/leader v0.1.0 => ./leader
+	github.com/minus5/svckit/log v0.1.0 => ./log
+	github.com/minus5/svckit/metric v0.1.0 => ./metric
+	github.com/minus5/svckit/metric/conn v0.1.0 => ./metric/conn
+	github.com/minus5/svckit/metric/dev v0.1.0 => ./metric/dev
+	github.com/minus5/svckit/metric/prometheus v0.1.0 => ./metric/prometheus
+	github.com/minus5/svckit/metric/statsd v0.1.0 => ./metric/statsd
+	github.com/minus5/svckit/nsq v0.1.0 => ./nsq
+	github.com/minus5/svckit/pkg/broker v0.1.0 => ./pkg/broker
+	github.com/minus5/svckit/pkg/compress v0.1.0 => ./pkg/compress
+	github.com/minus5/svckit/pkg/defaults v0.1.0 => ./pkg/defaults
+	github.com/minus5/svckit/pkg/geo v0.1.0 => ./pkg/geo
+	github.com/minus5/svckit/pkg/heartbeat v0.1.0 => ./pkg/heartbeat
+	github.com/minus5/svckit/pkg/jsonu v0.1.0 => ./pkg/jsonu
+	github.com/minus5/svckit/pkg/jsonu/frontend v0.1.0 => ./pkg/jsonu/frontend
+	github.com/minus5/svckit/pkg/mdb v0.1.0 => ./pkg/mdb
+	github.com/minus5/svckit/pkg/mdb2 v0.1.0 => ./pkg/mdb2
+	github.com/minus5/svckit/pkg/msgs v0.1.0 => ./pkg/msgs
+	github.com/minus5/svckit/pkg/mssql v0.1.0 => ./pkg/mssql
+	github.com/minus5/svckit/pkg/qcheck v0.1.0 => ./pkg/qcheck
+	github.com/minus5/svckit/pkg/sequence v0.1.0 => ./pkg/sequence
+	github.com/minus5/svckit/pkg/testu v0.1.0 => ./pkg/testu
+	github.com/minus5/svckit/pkg/testu/mongo v0.1.0 => ./pkg/testu/mongo
+	github.com/minus5/svckit/pkg/testu2 v0.1.0 => ./pkg/testu2
+	github.com/minus5/svckit/pkg/testu2/mongo v0.1.0 => ./pkg/testu2/mongo
+	github.com/minus5/svckit/pkg/util v0.1.0 => ./pkg/util
+	github.com/minus5/svckit/pkg/util/mongo/api v0.1.0 => ./pkg/util/mongo/api
+	github.com/minus5/svckit/pkg/util/profile v0.1.0 => ./pkg/util/profile
+	github.com/minus5/svckit/saga v0.1.0 => ./saga
+	github.com/minus5/svckit/signal v0.1.0 => ./signal
+)
